@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<form  ng-app="myApp" ng-controller="myCtrl" action="{{ url_for('editparent', parent_email=dormform.parent_email) }}" method="POST">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add New Dorm</h4>
+    </div>
+
+    <div class="modal-body">
+        {{ dormform.csrf_token }}
+        <div class="form-group">
+            {{ dormform.firstname.label }}
+            {{ dormform.firstname(class='form-control', placeholder="First Name") }}
+        </div>
+        <div class="form-group">
+            {{ dormform.lastname.label }}
+            {{ dormform.lastname(class='form-control', placeholder="Last Name") }}
+        </div>
+        <div class="form-group">
+            {{ dormform.phone.label }}
+            {{ dormform.phone(class='form-control', placeholder="Phone") }}
+        </div>
+        <div class="form-group">
+            {{ dormform.gender.label }}
+            {{ dormform.gender(class='form-control', placeholder="Gender") }}
+        </div>
+        <div class="form-group">
+            {{ dormform.skills.label }}
+            {{ dormform.skills(class='form-control', placeholder="Skills") }}
+        </div>
+        <div class="form-group">
+            {{ dormform.parent_email.label }}
+            {{ dormform.parent_email(class='form-control', placeholder="Email") }}
+        </div>
+        <div class="form-group">
+            {{ dormform.dormnum.label }}
+            {{ dormform.dormnum(class='form-control', placeholder="Dorm Number") }}
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="submit" name="submit" class="btn btn-primary btn-block">Add Dorm Parent</button>
+    </div>
+</form>
+
+{% endblock %}

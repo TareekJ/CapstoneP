@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block main %}
+    <h2>Dorm Allocation</h2>
+    {% include 'flash_messages.html' %}
+
+    {% for dorm in dorms %}
+        <div class="room">
+            <div>
+                <div>Dorm{{ dorm[0].dorm_id }}</div>
+                <span><strong>Gender: </strong>{{ dorm[0].dorm_gender }}</span> |
+                <span><strong>Ages: </strong>{{ dorm[0].dormage_group }}</span> |
+                <span><strong>Capacity: </strong>{{ dorm[0].capacity }}</span>
+                <div><strong>Dorm Parent: </strong>{{ dorm[1].fname + dorm[1].lname }}</div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

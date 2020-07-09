@@ -1,0 +1,7 @@
+{
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": false,
+    "python.linting.enabled": true,
+    "python.linting.mypyEnabled": true,
+    "python.pythonPath": "c:\\Users\\Tareek J\\Desktop\\CapstoneProject\\venv\\Scripts\\python.exe"
+}

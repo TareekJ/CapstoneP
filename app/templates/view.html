@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block main %}
+    <h2>View Children</h2>
+    {% include 'flash_messages.html' %}
+
+    {% for child in children %}
+        <div class="item">
+            <form  action="" method="delete">
+                <button type="submit" name="submit"  class="close">&times;</button>
+            </form>
+            <div>
+                <span><strong>{{ child.fname }}</strong></span> |
+                <span>{{ child.lname }}</span> |
+                <span>{{ child.age }}</span> |
+                <span>{{ child.mname }}</span> |
+                <span>{{ child.parentname }}</span> |
+                <span>{{ child.dob }}</span> |
+                <span>{{ child.phone }}</span> |
+                <span>{{ child.gender }}</span> |
+                <span>{{ child.location }}</span> |
+                <span>{{ child.illness }}</span> |
+                <span>{{ child.email }}</span>
+                <span>{{ child.dormnum }}</span>
+                <span>{{ child.comments_made }}</span>
+            </div>
+        </div>
+
+    {% endfor %}
+    <div>
+        <h2 style="margin-top: 30px;">View Dorm Parent</h2>
+        {% for dormparent in parents %}
+            <div class="item">
+            <form  action="" method="delete">
+                <button type="submit" name="submit"  class="close">&times;</button>
+            </form>
+            <form action="{{ url_for('editparent', parent_email=dormparent.parent_email) }}" method="GET">
+                <button data-toggle="modal" data-target="#editParent">Edit</button>
+            </form>
+                <div>
+                    <span ><strong>{{ dormparent.fname }}</strong></span> |
+                    <span>{{ dormparent.lname }}</span> |
+                    <span>{{ dormparent.phone }}</span> |
+                    <span>{{ dormparent.gender }}</span> |
+                    <span>{{ dormparent.parent_email }}</span> |
+                    <span>{{ dormparent.skills }}</span> 
+                    <span>{{ dormparent.dormnum }}</span>  
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+
+    <div>
+        <h2 style="margin-top: 30px;">View Comments on Children</h2>
+        {% for comment in comments %}
+            <div class="item">
+            <form  action="" method="delete">
+                <button type="submit" name="submit"  class="close">&times;</button>
+            </form>
+            <form action="{{ url_for('comment',c_id=comment.c_id) }}" method="GET">
+                <button data-toggle="modal" data-target="#editComments">Edit</button>
+            </form>
+                <div>
+                    <span ><strong>{{ comment.c_id }}</strong></span> |
+                    <span>{{ comment.fname }}</span> |
+                    <span>{{ comment.lname }}</span> |
+                    <span>{{ comment.comments_made }}</span> | 
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+
+
+{% endblock %}
