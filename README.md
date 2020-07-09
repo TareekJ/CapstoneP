@@ -2,7 +2,7 @@
 
 `Group Members`
 
-Tareek Johnson  
-Moesha
-Zoan Lyn
+- Tareek Johnson  
+- Moesha Amos
+- Zoan Lyn
 
